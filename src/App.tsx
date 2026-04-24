@@ -17,7 +17,7 @@ export default function App() {
       id: 1,
       slug: "gungnamji",
       name: "1일차 야외활동 : 궁남지",
-      short: "백제의 정원 문화를 느낄 수 있는 대표 명소",
+      short: "백제 귀족의 정원 문화를 느낄 수 있는 대표 명소",
       description:
         "궁남지는 백제 무왕 시기에 조성된 것으로 전해지는 우리나라에서 가장 오래된 인공 연못 중 하나입니다. 궁궐 남쪽에 위치했다고 하여 ‘궁남지’라는 이름이 붙었으며, 왕실 정원의 일부로 활용되었을 것으로 추정됩니다. 연못 중앙의 섬과 주변 식재 구조는 백제의 조경 기술을 보여주는 중요한 요소입니다. 특히 여름철 연꽃이 만개하는 시기에는 부여를 대표하는 관광 명소로 많은 방문객이 찾는 장소이며, 단순한 경관 감상을 넘어 백제의 자연관과 정원 문화를 함께 이해할 수 있는 공간으로 볼 수 있습니다.",
       photos: [
@@ -123,10 +123,12 @@ export default function App() {
     },
   ];
 
-  const getSlug = () => window.location.hash.replace("#", "");
-  const [slug, setSlug] = useState<string>(
-    typeof window !== "undefined" ? getSlug() : ""
-  );
+  const getSlug = () => {
+    if (typeof window === "undefined") return "";
+    return window.location.hash.replace("#", "");
+  };
+
+  const [slug, setSlug] = useState<string>(getSlug());
 
   useEffect(() => {
     const handler = () => setSlug(getSlug());
@@ -223,6 +225,32 @@ export default function App() {
               </p>
             </div>
 
+            {/* 영상 추가 (우천 시 코스만 표시) */}
+            {selected.slug === "rain-course" && (
+              <div style={{ marginBottom: "20px" }}>
+                <iframe
+                  width="100%"
+                  height="220"
+                  src="https://www.youtube.com/embed/vqORODKxtXA?autoplay=1&mute=1"
+                  title="백제 미디어아트"
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  style={{ borderRadius: "16px" }}
+                />
+                <p
+                  style={{
+                    fontSize: "14px",
+                    marginTop: "10px",
+                    color: "#44403c",
+                    textAlign: "center",
+                  }}
+                >
+                  환상적인 미디어아트와 함께 몰입감 있는 백제 문화를 즐겨봅시다!
+                </p>
+              </div>
+            )}
+
             <div style={{ display: "grid", gap: "16px" }}>
               {selected.photos.map((photo, index) => {
                 const src = typeof photo === "string" ? photo : photo.src;
@@ -241,16 +269,45 @@ export default function App() {
                       }}
                     />
                     {caption ? (
-                      <p
-                        style={{
-                          fontSize: "13px",
-                          lineHeight: 1.6,
-                          color: "#57534e",
-                          margin: "8px 4px 0",
-                        }}
-                      >
-                        {caption}
-                      </p>
+                      <>
+                        <p
+                          style={{
+                            fontSize: "13px",
+                            lineHeight: 1.6,
+                            color: "#57534e",
+                            margin: "8px 4px 0",
+                          }}
+                        >
+                          {caption}
+                        </p>
+
+                        {/* 국립부여박물관 영상 추가 */}
+                        {selected.slug === "baekje" &&
+                          caption.includes("국립부여박물관") && (
+                            <div style={{ marginTop: "10px" }}>
+                              <iframe
+                                width="100%"
+                                height="200"
+                                src="https://www.youtube.com/embed/VEmWqfXmUxY?autoplay=1&mute=1"
+                                title="국립부여박물관 영상"
+                                frameBorder="0"
+                                allow="autoplay; encrypted-media"
+                                allowFullScreen
+                                style={{ borderRadius: "12px" }}
+                              />
+                              <p
+                                style={{
+                                  fontSize: "13px",
+                                  marginTop: "8px",
+                                  color: "#44403c",
+                                  textAlign: "center",
+                                }}
+                              >
+                                신기술융합콘텐츠로 백제인의 예술성을 느껴봅시다!
+                              </p>
+                            </div>
+                          )}
+                      </>
                     ) : null}
                   </div>
                 );
