@@ -12,6 +12,8 @@ type Place = {
 };
 
 export default function App() {
+  const secretSlug = "secret";
+
   const places: Place[] = [
     {
       id: 1,
@@ -154,6 +156,66 @@ export default function App() {
     boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
     border: "1px solid #e7e5e4",
   };
+
+  if (slug === secretSlug) {
+    return (
+      <div style={containerStyle}>
+        <div style={cardStyle}>
+          <img
+            src="https://mblogthumb-phinf.pstatic.net/MjAyMTEyMDNfMTAy/MDAxNjM4NDk4Njg2NDI3.GPomgqQM1zQXGJ6jxkcyy4QGyYlSqk-w48yzBDaUx38g.yAjMnA9RLBaL0PNbCWllHC4zs0NjbiQ7rPopkSNWq44g.JPEG.kokafilms/571b3f10cd44eddab7401035a585a88d82.jpg?type=w800"
+            alt="secret"
+            style={{ width: "100%", height: "240px", objectFit: "cover" }}
+          />
+
+          <div style={{ padding: "20px" }}>
+            <a
+              href="#"
+              style={{
+                display: "inline-block",
+                marginBottom: "16px",
+                color: "#0f766e",
+                textDecoration: "none",
+                fontSize: "14px",
+                fontWeight: 700,
+              }}
+            >
+              ← 목록으로
+            </a>
+
+            <div
+              style={{
+                background: "#fafaf9",
+                border: "1px solid #e7e5e4",
+                borderRadius: "16px",
+                padding: "16px",
+              }}
+            >
+              <h2
+                style={{
+                  fontSize: "17px",
+                  margin: "0 0 10px",
+                  color: "#1c1917",
+                }}
+              >
+                🎉 비밀 발견!
+              </h2>
+              <p
+                style={{
+                  fontSize: "15px",
+                  lineHeight: 1.7,
+                  color: "#44403c",
+                  margin: 0,
+                }}
+              >
+                개발자의 비밀 장소를 찾으셨군요! 총무팀 유영지 선생님한테 가서
+                이 화면을 보여주면 육포를 줄 거에요! 따봉 육포!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (selected) {
     return (
@@ -323,7 +385,20 @@ export default function App() {
     <div style={containerStyle}>
       <div style={cardStyle}>
         <div style={{ background: "#0f766e", color: "white", padding: "24px" }}>
-          <div style={{ fontSize: "13px", opacity: 0.9 }}>Buyeo Tour Guide</div>
+          <a
+            href="#secret"
+            aria-label="hidden page"
+            style={{
+              display: "inline-block",
+              fontSize: "13px",
+              opacity: 0.9,
+              color: "inherit",
+              textDecoration: "none",
+              cursor: "default",
+            }}
+          >
+            Buyeo Tour Guide
+          </a>
           <h1 style={{ fontSize: "28px", margin: "6px 0 0" }}>
             부여 투어 가이드
           </h1>
