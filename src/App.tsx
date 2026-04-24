@@ -207,8 +207,8 @@ export default function App() {
                   margin: 0,
                 }}
               >
-                개발자 임주형의 비밀 장소를 찾으셨군요! 총무팀 유영지 선생님한테
-                가서 이 화면을 보여주면 육포를 줄 거에요! 따봉 육포!
+                개발자의 비밀 장소를 찾으셨군요! 총무팀 유영지 선생님한테 가서
+                이 화면을 보여주면 육포를 줄 거에요! 따봉 육포!
               </p>
             </div>
           </div>
@@ -385,25 +385,24 @@ export default function App() {
     <div style={containerStyle}>
       <div style={cardStyle}>
         <div style={{ background: "#0f766e", color: "white", padding: "24px" }}>
-          <a
-            href="#secret"
-            aria-label="hidden page"
-            style={{
-              display: "inline-block",
-              fontSize: "13px",
-              opacity: 0.9,
-              color: "inherit",
-              textDecoration: "none",
-              cursor: "default",
-            }}
-          >
-            Buyeo Tour Guide
-          </a>
+          <div style={{ fontSize: "13px", opacity: 0.9 }}>Buyeo Tour Guide</div>
           <h1 style={{ fontSize: "28px", margin: "6px 0 0" }}>
             부여 투어 가이드
           </h1>
           <p style={{ fontSize: "14px", opacity: 0.9, margin: "10px 0 0" }}>
-            장소를 눌러 상세 설명을 확인해보세요.
+            장소를{" "}
+            <a
+              href="#secret"
+              aria-label="hidden page"
+              style={{
+                color: "inherit",
+                textDecoration: "none",
+                cursor: "default",
+              }}
+            >
+              눌러
+            </a>{" "}
+            상세 설명을 확인해보세요.
           </p>
         </div>
 
