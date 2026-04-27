@@ -207,10 +207,20 @@ export default function App() {
                   margin: 0,
                 }}
               >
-                개발자 임주형의 비밀 장소를 찾으셨군요! 쉿! 다른 사람에게 말하지 마세요! 총무팀 유영지 선생님한테
-                가서 이 화면을 보여주면 육포를 줄 거에요! 선착순 따봉 육포!
+                개발자 임주형의 비밀 장소를 찾으셨군요! 쉿! 다른 사람에게 말하지
+                마세요! 총무팀 유영지 선생님한테 가서 이 화면을 보여주면 육포를
+                줄 거에요! 선착순 따봉 육포!
               </p>
             </div>
+            <img
+              src="https://lh3.googleusercontent.com/d/1kGeUOIbWDPIuLcuD3WAaqzEGbWmpf9DL"
+              alt="새 이미지"
+              style={{
+                width: "100%",
+                marginTop: "16px",
+                borderRadius: "16px",
+              }}
+            />
           </div>
         </div>
       </div>
