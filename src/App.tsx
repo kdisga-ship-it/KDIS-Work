@@ -213,7 +213,7 @@ export default function App() {
               </p>
             </div>
             <img
-              src="https://lh3.googleusercontent.com/d/1kGeUOIbWDPIuLcuD3WAaqzEGbWmpf9DL"
+              src="https://lh3.googleusercontent.com/d/1i8fJONIJbA4qZJk4zIYVCxWSkqPONYUO"
               alt="새 이미지"
               style={{
                 width: "100%",
